@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Memo Card</title>
+    <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <script>
+      function showGamePage() {
+          document.getElementById('instruction-page').style.display = 'none';
+          document.getElementById('game-page').style.display = 'block';
+          initializeGame(); // Start the game once the page is switched
+      }
+  </script>
+</head>
+<body>
+  <div id="instruction-page">
+      <h1>Instructions</h1>
+      <p>Welcome to the Fun Memo Card game! Here are the instructions:</p>
+      <ul>
+          <li>Find all the matching pairs of cards.</li>
+          <li>You have a limited amount of time to complete the game.</li>
+          <li>Click on a card to flip it and reveal its content.</li>
+          <li>If two cards match, they will stay flipped. If not, they will flip back.</li>
+          <li>Good luck and have fun!</li>
+      </ul>
+      <button onclick="showGamePage()">Start Game</button>
+  </div>
+
+  <div id="game-page" style="display: none;">
+    <h1>Fun Memo Card</h1>
+    <div id="grid">
+    </div>
+    <div id="status-bar">
+        <p>Score: <span class="score">0</span></p>
+        <div class="timer">Time: 0s</div>
+    </div>
+    <div class="actions">
+      <button id="restart" onclick="initializeGame()">Restart</button>
+  </div>
+    <div id="grid">
+        <!-- Cards will be dynamically created by JavaScript -->
+    </div>   
+</div>
+</body>
+</html>

@@ -1,0 +1,130 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+head {
+    justify-content: space-around;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin: 0;
+    background: url(https://upload.wikimedia.org/wikipedia/en/c/c1/Super_Mario_Clouds.gif) no-repeat center center fixed;
+    background-size: cover;
+}
+
+p  {
+    background-color: lightblue;
+    font-size: larger;
+}
+
+li {
+    background-color: aliceblue;
+}
+
+#grid {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-gap: 10px;
+    padding: 10px;
+    background-color: rgba(150, 150, 150, 0.2); /* Optional: semi-transparent background */
+    border-radius: 1rem;
+    border-width: 10px;
+    
+}
+
+button {
+    font-size: 18px; /* Increase font size */
+    padding: 15px 30px; /* Add padding to make the button bigger */
+    margin: 10px; /* Add margin for spacing */
+    border: none; /* Remove default border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: lightskyblue; /* Background color */
+    color: black; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    display: flex;
+    align-content: baseline;
+}
+
+button:hover {
+    background-color: purple; /* Darker background on hover */
+}
+
+h1 {
+    margin-bottom: 10px;
+    color: purple; /* Ensure the text is visible against the background */
+    justify-content: space-around;
+}
+
+#instruction-page {
+    background: cover;
+
+
+}
+
+#status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    
+}
+
+
+#timer {
+    color: aqua;
+
+}
+
+.card {
+    width: 80px;
+    height: 100px;
+    perspective: 1000px; /* Needed for 3D effect */
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72px;
+    font-weight: bold;
+    border-radius: 1rem;
+    border: 20px solid #000;
+    
+}
+
+.card-front {
+    background-color: palevioletred;
+    transform: rotateY(180deg);
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.card-back{
+    background-image: url(https://i.imgur.com/nuLVjN0.mp4);
+    border: 1px solid #000;
+}
