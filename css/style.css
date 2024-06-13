@@ -4,9 +4,6 @@ html, body {
     padding: 0;
 }
 
-head {
-    justify-content: space-around;
-}
 
 body {
     font-family: Arial, sans-serif;
@@ -32,7 +29,6 @@ li {
     grid-template-columns: repeat(6, 100px);
     grid-gap: 10px;
     padding: 10px;
-    background-color: rgba(150, 150, 150, 0.2); /* Optional: semi-transparent background */
     border-radius: 1rem;
     border-width: 10px;
     
@@ -57,9 +53,19 @@ button:hover {
 }
 
 h1 {
+    display: flex;
     margin-bottom: 10px;
     color: purple; /* Ensure the text is visible against the background */
-    justify-content: space-around;
+    justify-content: center;
+    font-size: 86px;
+    font-family: "Tiny5", sans-serif;
+}
+
+.tiny5-regular {
+    font-family: "Tiny5", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+   
 }
 
 #instruction-page {
@@ -118,7 +124,6 @@ h1 {
 }
 
 .card-front {
-    background-color: palevioletred;
     transform: rotateY(180deg);
     color: #fff;
     border: 1px solid #000;
@@ -127,4 +132,11 @@ h1 {
 .card-back{
     background-image: url(https://i.imgur.com/nuLVjN0.mp4);
     border: 1px solid #000;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire card area */
+    border-radius: 1rem; /* Match the border radius of the card */
 }

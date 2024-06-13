@@ -1,52 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('#grid');
-    const restartButton = document.querySelector('#restart');
     const scoreDisplay = document.querySelector('.score');
     const timerDisplay = document.querySelector('.timer');
 
-    const cardArray = [
-        { name: 'A', id: 1 },
-        { name: 'A', id: 2 },
-        { name: 'B', id: 3 },
-        { name: 'B', id: 4 },
-        { name: 'C', id: 5 },
-        { name: 'C', id: 6 },
-        { name: 'D', id: 7 },
-        { name: 'D', id: 8 },
-        { name: 'E', id: 9 },
-        { name: 'E', id: 10 },
-        { name: 'F', id: 11 },
-        { name: 'F', id: 12 },
-        { name: 'G', id: 13 },
-        { name: 'G', id: 14 },
-        { name: 'H', id: 15 },
-        { name: 'H', id: 16 },
-        { name:  'I', id:17 },
-        { name:  'I', id:18}
-    ];
+    const cardArrayimg = [
+        { name: 'img1.png', img: 'littleManHeart' },
+        { name: 'img1.png', img: 'littleManHeart' },
+        { name: 'img3.png', img: 'Water' },
+        { name: 'img3.png', img: 'Water' },
+        { name: 'img5.png', img: 'Paysage' },
+        { name: 'img5.png', img: 'Paysage' },
+        { name: 'img8.png', img: 'Landscape' },
+        { name: 'img8.png', img: 'Landscape' },
+        { name: 'img6.png', img: 'LittleMan' },
+        { name: 'img6.png', img: 'LittleMan' },
+        { name: 'img7.png', img: 'PixelMen' },
+        { name: 'img7.png', img: 'PixleMen' },
+        { name: 'img10.png', img: 'Triforce' },
+        { name: 'img10.png', img: 'Triforce' },
+        { name: 'img11.png', img: 'SkeletHead' },
+        { name: 'img11.png', img: 'SkeletHead' },
+        { name: 'img12.png', img: 'Love' },
+        { name: 'img12.png', img: 'Love' },
 
+    ];
 
     let firstCard = null;
     let secondCard = null;
     let lockBoard = false;
     let score = 0;
     let seconds = 0;
-    let timer; 
-    
+    let timer;
 
-
-
-    document.querySelector(".score").textContent = score;
+    scoreDisplay.textContent = score;
     // Shuffle the cards
-    cardArray.sort(() => 0.5 - Math.random());
+    cardArrayimg.sort(() => 0.5 - Math.random());
 
     // Create the cards
-    cardArray.forEach(item => {
+    cardArrayimg.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('card');
         card.innerHTML = `
             <div class="card-inner">
-                <div class="card-front">${item.name}</div>
+                <div class="card-front">
+                    <img src="${item.name}" alt="${item.img}">
+                </div>
                 <div class="card-back"></div>
             </div>
         `;
@@ -102,6 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetBoard() {
         [firstCard, secondCard, lockBoard] = [null, null, false];
+    }
+
+    function endGame (){
+        disableCards();
+        resetBoard();
     }
 
     // function restart(){
