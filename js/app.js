@@ -2,7 +2,7 @@ const grid = document.querySelector('#grid');
 const scoreDisplay = document.querySelector('.score');
 const timerDisplay = document.querySelector('.timer');
 const messageDisplay = document.querySelector('.message');
-const restart = document.querySelector('#restart');
+const restartButton = document.querySelector('#restart');
 const WinMessage = "You Win!";
 const LostMessage = "You Lost! Try again!";
 
@@ -41,31 +41,54 @@ let seconds = 0;
 let timer;
 let gameOver = false;
 
-// scoreDisplay.textContent = score;
+function initializeGame() {
+    resetGameState();
+    startGame();
+}
+
+function resetGameState() {
+    clearInterval(timer);
+    score = 0;
+    seconds = 0;
+    gameOver = false;
+    scoreDisplay.textContent = `${score}`;
+    timerDisplay.textContent = `Time: ${seconds}s`;
+    // messageDisplay.textContent = '';
+    // grid.innerHTML = '';
+    lockBoard = false;
+    firstCard = null;
+    secondCard = null;
+}
+
+function startGame() {
     // Shuffle the cards
-cardArray.sort(() => 0.5 - Math.random());
+    cardArray.sort(() => 0.5 - Math.random());
 
     // Create the cards
-cardArray.forEach(item => {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    card.innerHTML = `
-        <div class="card-inner">
-            <div class="card-front">
-                <img src="${item.name}" alt="${item.img}">
+    cardArray.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.innerHTML = `
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="${item.name}" alt="${item.img}">
+                </div>
+                <div class="card-back"></div>
             </div>
-            <div class="card-back"></div>
-        </div>
         `;
-    card.setAttribute('data-name', item.name);
-    grid.appendChild(card);
+        card.setAttribute('data-name', item.name);
+        grid.appendChild(card);
 
-    card.addEventListener('click', flipCard);
-});
+        card.addEventListener('click', flipCard);
+    });
+
+    startTimer(); // Start the timer when the game begins
+}
 
 function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
+
     this.classList.add('flipped');
 
     if (!firstCard) {
@@ -83,7 +106,10 @@ function checkForMatch() {
     if (isMatch) {
         disableCards();
         score++;
-        scoreDisplay.textContent = score;
+        scoreDisplay.textContent = `${score}`;
+        if (score === 12) {
+            endGame();
+        }
     } else {
         unflipCards();
     }
@@ -108,15 +134,30 @@ function resetBoard() {
 }
 
 function startTimer() {
+    clearInterval(timer); // Clear any existing timer
     timer = setInterval(() => {
         seconds++;
         timerDisplay.textContent = `Time: ${seconds}s`;
+        if (seconds >= 30) {
+            endGame();
+        }
     }, 1000);
 }
 
+function endGame() {
+    clearInterval(timer); // Stop the timer
 
+    gameOver = true;
+    // Set win or loss message
+    if (score === 12 && seconds <= 15) {
+        messageDisplay.textContent = WinMessage;
+    } else {
+        messageDisplay.textContent = LostMessage;
+    }
+}
 
-startTimer(); // Start the timer when the game begins
+// Attach the restart function to the restart button
+restartButton.addEventListener('click', initializeGame);
 
-
-
+// Initialize the game when the page loads
+document.addEventListener('DOMContentLoaded', initializeGame);

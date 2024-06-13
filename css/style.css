@@ -15,11 +15,6 @@ body {
     background-size: cover;
 }
 
-p  {
-    background-color: lightblue;
-    font-size: larger;
-}
-
 li {
     background-color: aliceblue;
 }
@@ -85,7 +80,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    font-size: 24px;
     
 }
 
@@ -117,8 +112,6 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 72px;
-    font-weight: bold;
     border-radius: 1rem;
     border: 20px solid #000;
     
@@ -126,7 +119,6 @@ h1 {
 
 .card-front {
     transform: rotateY(180deg);
-    color: #fff;
     border: 1px solid #000;
 }
 
@@ -150,4 +142,13 @@ h1 {
 .actions {
     display: flex;
     justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+.message {
+    display: flex;
+    font-size: 32px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
