@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Memo Card</title>
-    <script defer src="js/app.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Tiny5&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zelda's Card Game</title>
+    <script defer src="js/app.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
     <script>
       function showGamePage() {
           document.getElementById('instruction-page').style.display = 'none';
           document.getElementById('game-page').style.display = 'block';
-          initializeGame(); // Start the game once the page is switched
+        //   initializeGame(); // Start the game once the page is switched
       }
   </script>
 </head>
@@ -28,11 +28,11 @@
           <li>If two cards match, they will stay flipped. If not, they will flip back.</li>
           <li>Good luck and have fun!</li>
       </ul>
-      <button onclick="showGamePage()">Click to Start</button>
+      <button onclick="showGamePage()">Start Game</button>
   </div>
 
   <div id="game-page" style="display: none;">
-    <h1>Fun Memo Card</h1>
+    <h1>Zee's Memory Game</h1>
     <div id="grid">
     </div>
     <div id="status-bar">
@@ -45,6 +45,8 @@
     <div id="grid">
         <!-- Cards will be dynamically created by JavaScript -->
     </div>   
+     <div class = "message"></div> 
+     
 </div>
 </body>
 </html>

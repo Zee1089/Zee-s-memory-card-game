@@ -26,7 +26,7 @@ li {
 
 #grid {
     display: grid;
-    grid-template-columns: repeat(6, 100px);
+    grid-template-columns: repeat(8, 100px);
     grid-gap: 10px;
     padding: 10px;
     border-radius: 1rem;
@@ -57,7 +57,8 @@ h1 {
     margin-bottom: 10px;
     color: purple; /* Ensure the text is visible against the background */
     justify-content: center;
-    font-size: 86px;
+    align-items: center;
+    font-size: 96px;
     font-family: "Tiny5", sans-serif;
 }
 
@@ -68,9 +69,15 @@ h1 {
    
 }
 
-#instruction-page {
-    background: cover;
 
+
+  #instruction-page {
+    background: url(https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjJmejhhNm01encwZnJtZHh2cDk1eXdnd2ZiZ3gzOHBkNzl4cHc5NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rMnd7B3BMASboHgVep/giphy.webp) no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
 
 }
 
@@ -80,12 +87,6 @@ h1 {
     align-items: center;
     margin-bottom: 20px;
     
-}
-
-
-#timer {
-    color: aqua;
-
 }
 
 .card {
@@ -130,7 +131,6 @@ h1 {
 }
 
 .card-back{
-    background-image: url(https://i.imgur.com/nuLVjN0.mp4);
     border: 1px solid #000;
 }
 
@@ -139,4 +139,15 @@ h1 {
     height: 100%;
     object-fit: cover; /* Ensure the image covers the entire card area */
     border-radius: 1rem; /* Match the border radius of the card */
+}
+
+#restart {
+    display: flex;
+    justify-content: center;
+
+}
+
+.actions {
+    display: flex;
+    justify-content: center; /* Center horizontally */
 }
