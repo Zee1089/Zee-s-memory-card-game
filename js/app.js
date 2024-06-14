@@ -7,30 +7,30 @@ const WinMessage = "You Win!";
 const LostMessage = "You Lost! Try again!";
 
 const cardArray = [
-    { name: 'img1.png', img: 'littleManHeart' },
-    { name: 'img1.png', img: 'littleManHeart' },
-    { name: 'img2.png', img: 'dragon' },
-    { name: 'img2.png', img: 'dragon' },
-    { name: 'img3.png', img: 'Water' },
-    { name: 'img3.png', img: 'Water' },
-    { name: 'img4.png', img: 'neonguy' },
-    { name: 'img4.png', img: 'neonguy' },
-    { name: 'img5.png', img: 'Paysage' },
-    { name: 'img5.png', img: 'Paysage' },
-    { name: 'img8.png', img: 'Landscape' },
-    { name: 'img8.png', img: 'Landscape' },
-    { name: 'img6.png', img: 'LittleMan' },
-    { name: 'img6.png', img: 'LittleMan' },
-    { name: 'img7.png', img: 'PixelMen' },
-    { name: 'img7.png', img: 'PixelMen' },
-    { name: 'img9.png', img: 'PinkTree' },
-    { name: 'img9.png', img: 'PinkTree' },
-    { name: 'img10.png', img: 'Triforce' },
-    { name: 'img10.png', img: 'Triforce' },
-    { name: 'img11.png', img: 'SkeletHead' },
-    { name: 'img11.png', img: 'SkeletHead' },
-    { name: 'img12.png', img: 'Love' },
-    { name: 'img12.png', img: 'Love' }
+    { name: 'images/img1.png', img: 'littleManHeart' },
+    { name: 'images/img1.png', img: 'littleManHeart' },
+    { name: 'images/img2.png', img: 'dragon' },
+    { name: 'images/img2.png', img: 'dragon' },
+    { name: 'images/img3.png', img: 'Water' },
+    { name: 'images/img3.png', img: 'Water' },
+    { name: 'images/img4.png', img: 'neonguy' },
+    { name: 'images/img4.png', img: 'neonguy' },
+    { name: 'images/img5.png', img: 'Paysage' },
+    { name: 'images/img5.png', img: 'Paysage' },
+    { name: 'images/img8.png', img: 'Landscape' },
+    { name: 'images/img8.png', img: 'Landscape' },
+    { name: 'images/img6.png', img: 'LittleMan' },
+    { name: 'images/img6.png', img: 'LittleMan' },
+    { name: 'images/img7.png', img: 'PixelMen' },
+    { name: 'images/img7.png', img: 'PixelMen' },
+    { name: 'images/img9.png', img: 'PinkTree' },
+    { name: 'images/img9.png', img: 'PinkTree' },
+    { name: 'images/img10.png', img: 'Triforce' },
+    { name: 'images/img10.png', img: 'Triforce' },
+    { name: 'images/img11.png', img: 'SkeletHead' },
+    { name: 'images/img11.png', img: 'SkeletHead' },
+    { name: 'images/img12.png', img: 'Love' },
+    { name: 'images/img12.png', img: 'Love' }
 ];
 
 let firstCard = null;
@@ -53,8 +53,8 @@ function resetGameState() {
     gameOver = false;
     scoreDisplay.textContent = `${score}`;
     timerDisplay.textContent = `Time: ${seconds}s`;
-    // messageDisplay.textContent = '';
-    // grid.innerHTML = '';
+    messageDisplay.textContent = '';
+    grid.innerHTML = '';
     lockBoard = false;
     firstCard = null;
     secondCard = null;
@@ -138,7 +138,7 @@ function startTimer() {
     timer = setInterval(() => {
         seconds++;
         timerDisplay.textContent = `Time: ${seconds}s`;
-        if (seconds >= 30) {
+        if (seconds >= 80) {
             endGame();
         }
     }, 1000);
@@ -149,7 +149,7 @@ function endGame() {
 
     gameOver = true;
     // Set win or loss message
-    if (score === 12 && seconds <= 15) {
+    if (score === 12 && seconds <= 80) {
         messageDisplay.textContent = WinMessage;
     } else {
         messageDisplay.textContent = LostMessage;
@@ -159,5 +159,7 @@ function endGame() {
 // Attach the restart function to the restart button
 restartButton.addEventListener('click', initializeGame);
 
+
 // Initialize the game when the page loads
 document.addEventListener('DOMContentLoaded', initializeGame);
+

@@ -13,20 +13,20 @@
       function showGamePage() {
           document.getElementById('instruction-page').style.display = 'none';
           document.getElementById('game-page').style.display = 'block';
-        //   initializeGame(); // Start the game once the page is switched
+          initializeGame(); // Start the game once the page is switched
       }
   </script>
 </head>
 <body>
   <div id="instruction-page">
       <h1>Instructions</h1>
-      <p>Welcome to the Fun Memo Card game! Here are the instructions:</p>
+      <p>Welcome to Zee's Memo Card game! Here are the instructions:</p>
       <ul>
           <li>Find all the matching pairs of cards.</li>
           <li>You have a limited amount of time to complete the game.</li>
           <li>Click on a card to flip it and reveal its content.</li>
-          <li>If two cards match, they will stay flipped. If not, they will flip back.</li>
-          <li>Good luck and have fun!</li>
+          <li>If two cards match, you'll score a point. If not, they will flip back.</li>
+          <li>Have fun!</li>
       </ul>
       <button onclick="showGamePage()">Start Game</button>
   </div>
