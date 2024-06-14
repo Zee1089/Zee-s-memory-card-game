@@ -82,7 +82,7 @@ function startGame() {
         card.addEventListener('click', flipCard);
     });
 
-    startTimer(); // Start the timer when the game begins
+    startTimer(); // Start the timer
 }
 
 function flipCard() {
